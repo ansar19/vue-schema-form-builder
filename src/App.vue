@@ -1,17 +1,27 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+   <ul class="nav">
+     <li>
+        <router-link to="/demo-calc">Demo Calc</router-link>
+      </li>
+   </ul>
+   <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import DemoCalc from './components/DemoCalc.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    // eslint-disable-next-line vue/no-unused-components
+    DemoCalc
+  },
+  data() {
+    return {
+      showWhich: "DemoCalc"
+    }
   }
 }
 </script>
@@ -24,5 +34,14 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+ul.nav > li {
+  display: inline;
+  padding-left: 10px;
+}
+ul.nav > li::before {
+  content: "\2630";
+  padding-right: 5px;
 }
 </style>
